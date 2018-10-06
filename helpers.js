@@ -12,15 +12,14 @@ const parsePostContent = post => R.pipe(
       return key
     }
   }),
-  R.omit(['firstPublishedAt'])
 )(post)
 
 const parsedPosts = posts => R.pipe(
   R.map(post => parsePostContent(post)),
   R.map(obj => ({
     ...obj,
-    firstPublishedMonth: moment(obj.firstPublishedAt).format('DD'),
-    firstPublishedDay: moment(obj.firstPublishedAt).format('MMMM'),
+    firstPublishedAtMonth: moment(obj.firstPublishedAt).format('MMM'),
+    firstPublishedAtDay: moment(obj.firstPublishedAt).format('DD'),
   })),
 )(posts)
 
