@@ -11,6 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^6.0.0",
+    "good": "^8.1.1",
+    "good-console": "^7.1.0",
+    "good-squeeze": "^5.1.0",
     "hapi": "^17.6.0",
     "moment": "^2.22.2",
     "ramda": "^0.25.0",
