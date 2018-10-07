@@ -6,12 +6,6 @@ const services = require('./services')
 const server = new Hapi.Server({
   host: 'localhost',
   port: 8000,
-  routes: {
-    cors: {
-      origin: ['krn.sh', 'localhost:8000', 'now.sh'],
-      additionalHeaders: ['Access-Control-Allow-Origin']
-    }
-  }
 })
 
 const options = {
@@ -33,13 +27,13 @@ server.route({
   method: 'GET',
   path: '/posts/{lang}',
   options: {
-    log: {
-        collect: true
-    }
+    cors: {
+      origin: 'ignore'
+    },
   },
   handler: (request, h) => {
     return services.req({
-      url: process.env.MEDIUM_URL,
+      url: 'https://medium.com/@keyserfaty/latest',
       headers: {
         'Accept': 'application/json'
       }
